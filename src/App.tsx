@@ -1,7 +1,8 @@
 import React from 'react';
+import Streaming from './Components/Streaming/Streaming';
 
-const App: React.FC = () => {
-  return <div>hello!</div>;
+const App = () => {
+  return <Streaming />;
 };
 
 export default App;
