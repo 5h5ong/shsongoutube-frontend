@@ -10,19 +10,31 @@ const Streaming = () => {
         videoName: 'sample-video.mp4'
       },
       {
-        responseType: 'blob'
+        responseType: 'blob',
+        headers: {
+          'Content-Type': 'video/mp4'
+        }
       }
     );
-    // make object url
-    const blobUrl = URL.createObjectURL(video.data);
-    setBlobUrl(blobUrl);
+    setBlobUrl(makeBlob(video.data));
+  };
+  // make object url
+  const makeBlob = (videoData: any) => {
+    // blob === undifined
+    console.log(videoData);
+    const blobUrl = URL.createObjectURL(videoData);
+    return blobUrl;
   };
 
   useEffect(() => {
     downloadVideo();
-  });
+  }, []);
 
-  return <div>hello!</div>;
+  return (
+    <video style={{ width: 750, height: 500 }}>
+      <source src={blobUrl} />
+    </video>
+  );
 };
 
 export default Streaming;
