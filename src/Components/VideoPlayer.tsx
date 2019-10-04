@@ -4,8 +4,9 @@ import ReactPlayer from 'react-player';
 const VideoPlayer = () => {
   return (
     <ReactPlayer
-      url='https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8'
+      url='https://shsongoutube.s3.ap-northeast-2.amazonaws.com/output/output.m3u8'
       playing
+      controls
     />
   );
 };
