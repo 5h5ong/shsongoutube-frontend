@@ -1,8 +1,8 @@
 import React from 'react';
-import Streaming from './Components/Streaming/Streaming';
+import VideoPlayer from './Components/VideoPlayer';
 
 const App = () => {
-  return <Streaming />;
+  return <VideoPlayer />;
 };
 
 export default App;
