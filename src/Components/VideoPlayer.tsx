@@ -1,13 +1,30 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useQuery } from 'react-apollo-hooks';
+import { gql } from 'apollo-boost';
 import ReactPlayer from 'react-player';
 
-const VideoPlayer = () => {
+// set type inside props
+type Props = {
+  filename: string;
+};
+
+const GET_FILE = gql`
+  query getFile($filename: String!) {
+    getFile(filename: $filename) {
+      url
+    }
+  }
+`;
+
+const VideoPlayer = ({ filename }: Props) => {
+  const { data, loading } = useQuery(GET_FILE, { variables: { filename } });
   return (
-    <ReactPlayer
-      url='https://shsongoutube.s3.ap-northeast-2.amazonaws.com/prog_index.m3u8'
-      playing
-      controls
-    />
+    <div>
+      {loading && <div> loading....</div>}
+      {!loading && data && data.url && (
+        <ReactPlayer url={data.url} playing controls />
+      )}
+    </div>
   );
 };
 
