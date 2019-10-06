@@ -18,9 +18,6 @@ const GET_FILE = gql`
 
 const VideoPlayer = ({ filename }: Props) => {
   const { data, loading } = useQuery(GET_FILE, { variables: { filename } });
-  if (data) {
-    console.log(data.getFile.url);
-  }
   return (
     <div>
       {loading && <div> loading....</div>}
