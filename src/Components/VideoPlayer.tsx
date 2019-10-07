@@ -5,23 +5,23 @@ import ReactPlayer from 'react-player';
 
 // set type inside props
 type Props = {
-  filename: string;
+  id: number;
 };
 
 const GET_FILE = gql`
-  query getFile($filename: String!) {
-    getFile(filename: $filename) {
+  query getFile($id: Int!) {
+    getFile(id: $id) {
       url
     }
   }
 `;
 
-const VideoPlayer = ({ filename }: Props) => {
-  const { data, loading } = useQuery(GET_FILE, { variables: { filename } });
+const VideoPlayer = ({ id }: Props) => {
+  const { data, loading } = useQuery(GET_FILE, { variables: { id } });
   return (
     <div>
       {loading && <div> loading....</div>}
-      {!loading && data && data.getFile.url && (
+      {!loading && data && data.getFile && data.getFile.url && (
         <ReactPlayer url={data.getFile.url} playing controls />
       )}
     </div>
