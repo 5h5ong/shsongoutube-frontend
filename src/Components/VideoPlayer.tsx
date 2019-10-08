@@ -11,6 +11,7 @@ type Props = {
 
 // styled-components
 const Container = styled.div`
+  background-color: white;
   padding: 30px;
   border-radius: 16px;
   justify-content: center;
