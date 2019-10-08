@@ -1,18 +1,23 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from './typed-components';
+import { theme } from './Styles/Style';
 import VideoPlayer from './Components/VideoPlayer';
-import Style from './Styles/Style';
+import GlobalStyle from './Styles/GlobalStyle';
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
 `;
+
 const App = () => {
   return (
-    <ThemeProvider theme={Style}>
-      <Container>
-        <VideoPlayer id={2} />
-      </Container>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
+        <Container>
+          <VideoPlayer id={2} />
+        </Container>
+      </>
     </ThemeProvider>
   );
 };
