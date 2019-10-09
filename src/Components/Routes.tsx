@@ -4,7 +4,11 @@ import Home from '../Routes/Home';
 import Detail from '../Routes/Detail';
 import Auth from '../Routes/Auth';
 
-const LoginRoutes = () => {
+type AppRouterProps = {
+  isLoggedIn: boolean;
+};
+
+const LoggedInRoutes = () => {
   return (
     <Switch>
       <Route exact path='/' component={Home} />
@@ -12,8 +16,12 @@ const LoginRoutes = () => {
     </Switch>
   );
 };
-const AppRouter = () => {
-  return <LoginRoutes />;
+const LoggedOutRoutes = () => {
+  return <Route path='/Auth' component={Auth} />;
+};
+
+const AppRouter = ({ isLoggedIn }: AppRouterProps) => {
+  return <>{isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />}</>;
 };
 
 export default AppRouter;
