@@ -1,9 +1,10 @@
 import React from 'react';
 import styled, { ThemeProvider } from './typed-components';
-import {} from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import Home from './Routes/Home';
 import { theme } from './Styles/Style';
-import VideoPlayer from './Components/VideoPlayer';
 import GlobalStyle from './Styles/GlobalStyle';
+import Routes from './Components/Routes';
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +17,9 @@ const App = () => {
       <>
         <GlobalStyle />
         <Container>
-          <VideoPlayer id={2} />
+          <Router>
+            <Routes />
+          </Router>
         </Container>
       </>
     </ThemeProvider>
