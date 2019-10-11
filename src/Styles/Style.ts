@@ -9,6 +9,7 @@ export const theme = {
              box-shadow: ${BOX_SHADOW};
              border-radius: ${BORDER_RADIUS};
              justify-content: center;
+             padding: 40px;
   `
 };
 export type Theme = typeof theme;
