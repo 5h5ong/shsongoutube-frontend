@@ -17,7 +17,7 @@ const App = () => {
         <GlobalStyle />
         <Container>
           <Router>
-            <Routes isLoggedIn={false} />
+            <Routes isLoggedIn={true} />
           </Router>
         </Container>
       </>
