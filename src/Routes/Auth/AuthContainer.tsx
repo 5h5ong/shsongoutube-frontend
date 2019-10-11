@@ -2,7 +2,7 @@ import React from 'react';
 import AuthPresenter from './AuthPresenter';
 
 const AuthContainer = () => {
-  return <AuthPresenter />;
+  return <AuthPresenter loginAction='signup' />;
 };
 
 export default AuthContainer;

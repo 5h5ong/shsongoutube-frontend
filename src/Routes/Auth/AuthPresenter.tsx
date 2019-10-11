@@ -1,15 +1,30 @@
 import React from 'react';
 import styled from '../../typed-components';
 
+type AuthPresenterTypes = {
+  loginAction: string;
+};
+
 const Container = styled.div`
   ${props => props.theme.whiteBox};
 `;
 
-const AuthPresenter = () => {
+const Input = styled.input``;
+
+const AuthPresenter = ({ loginAction }: AuthPresenterTypes) => {
   return (
-    <Container>
-      <div>Auth</div>
-    </Container>
+    <>
+      {loginAction === 'login' && (
+        <Container>
+          <div>Login</div>
+        </Container>
+      )}
+      {loginAction === 'signup' && (
+        <Container>
+          <div>Signup</div>
+        </Container>
+      )}
+    </>
   );
 };
 
