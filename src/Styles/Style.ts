@@ -7,7 +7,6 @@ export const theme = {
   btnColor: '#0060df',
   whiteBox: `background-color: white;
              box-shadow: ${BOX_SHADOW};
-             padding: 30px;
              border-radius: ${BORDER_RADIUS};
              justify-content: center;
   `
