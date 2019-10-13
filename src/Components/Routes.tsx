@@ -13,6 +13,7 @@ const LoggedInRoutes = () => {
     <Switch>
       <Route exact path='/' component={Home} />
       <Route path='/Detail' component={Detail} />
+      <Route path='/streaming/:filename' component={Detail} />
     </Switch>
   );
 };
