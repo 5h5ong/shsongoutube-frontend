@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '../typed-components';
+import { Link } from 'react-router-dom';
 
 type HomeCardProps = {
   id: number;
@@ -19,7 +20,9 @@ const BoldText = styled.div`
 const HomeCard = ({ id, filename, url }: HomeCardProps) => {
   return (
     <Container>
-      <BoldText>{filename}</BoldText>
+      <Link to={{ pathname: `/streaming/${filename}`, state: { videoId: id } }}>
+        <BoldText>{filename}</BoldText>
+      </Link>
     </Container>
   );
 };
