@@ -3,8 +3,7 @@ import { withRouter } from 'react-router-dom';
 import VideoPlayer from '../Components/VideoPlayer';
 
 const Detail = ({ match, location }: any) => {
-  const { filename } = match.params;
-  const { videoId } = location.state;
+  const { filename, videoId } = match.params;
   return (
     <>
       <div>{filename}</div>

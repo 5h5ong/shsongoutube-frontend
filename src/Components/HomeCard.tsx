@@ -20,7 +20,7 @@ const BoldText = styled.div`
 const HomeCard = ({ id, filename, url }: HomeCardProps) => {
   return (
     <Container>
-      <Link to={{ pathname: `/streaming/${filename}`, state: { videoId: id } }}>
+      <Link to={`/streaming/${filename}/${id}`}>
         <BoldText>{filename}</BoldText>
       </Link>
     </Container>
