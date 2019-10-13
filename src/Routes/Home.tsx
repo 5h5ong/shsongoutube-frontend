@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-apollo-hooks';
 import { gql } from 'apollo-boost';
+import HomeCard from '../Components/HomeCard';
 
 const GET_ALL_FILE = gql`
   {
@@ -18,7 +19,12 @@ const Home = () => {
   return (
     <>
       {loading && <div>Loading...</div>}
-      {!loading && data && data.getAllFile && <div>Beautiful!</div>}
+      {!loading &&
+        data &&
+        data.getAllFile &&
+        data.getAllFile.map((file: any) => (
+          <HomeCard key={file.id} {...file} />
+        ))}
     </>
   );
 };
