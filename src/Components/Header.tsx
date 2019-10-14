@@ -5,11 +5,14 @@ const Container = styled.header`
   text-align: center;
   padding: 20px;
 `;
-
+const HeaderText = styled.div`
+  font-size: 50px;
+  font-weight: 1000;
+`;
 const Header = () => {
   return (
     <Container>
-      <div>HEADER</div>
+      <HeaderText>Shsongoutube</HeaderText>
     </Container>
   );
 };
