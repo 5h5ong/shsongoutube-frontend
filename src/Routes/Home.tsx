@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-apollo-hooks';
 import { gql } from 'apollo-boost';
+import styled from '../typed-components';
 import HomeCard from '../Components/HomeCard';
 
 const GET_ALL_FILE = gql`
@@ -13,11 +14,17 @@ const GET_ALL_FILE = gql`
   }
 `;
 
+const GridContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+`;
+
 const Home = () => {
   const { data, loading } = useQuery(GET_ALL_FILE);
   console.log(data);
   return (
-    <>
+    <GridContainer>
       {loading && <div>Loading...</div>}
       {!loading &&
         data &&
@@ -25,7 +32,7 @@ const Home = () => {
         data.getAllFile.map((file: any) => (
           <HomeCard key={file.id} {...file} />
         ))}
-    </>
+    </GridContainer>
   );
 };
 
