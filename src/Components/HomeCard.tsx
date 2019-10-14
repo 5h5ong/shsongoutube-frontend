@@ -10,6 +10,8 @@ type HomeCardProps = {
 
 const Container = styled.div`
   ${props => props.theme.whiteBox}
+  width: 100px;
+  height: 50px;
   margin: 0 20px;
 `;
 
