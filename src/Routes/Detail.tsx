@@ -5,6 +5,7 @@ import VideoPlayer from '../Components/VideoPlayer';
 
 const Container = styled.div`
   justify-content: center;
+  text-align: center;
   flex-direction: column;
 `;
 
