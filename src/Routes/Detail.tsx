@@ -9,7 +9,7 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-const Detail = ({ match, location }: any) => {
+const Detail = ({ match }: any) => {
   const { filename, videoId } = match.params;
   return (
     <Container>
