@@ -1,6 +1,8 @@
 import { createGlobalStyle } from '../typed-components';
+import reset from 'styled-reset';
 
 export default createGlobalStyle`
+${reset}
   body {
     @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
     font-family: 'Roboto', sans-serif;
