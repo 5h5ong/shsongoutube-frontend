@@ -5,14 +5,13 @@ import { Link } from 'react-router-dom';
 type HomeCardProps = {
   id: number;
   filename: string;
-  url: string;
   preview?: string;
 };
 
 const Container = styled.div`
   display: flex;
   ${props => props.theme.whiteBox}
-  margin: 0 20px;
+  margin: 20px 20px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
