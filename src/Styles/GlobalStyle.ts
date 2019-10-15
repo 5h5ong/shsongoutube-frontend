@@ -2,10 +2,10 @@ import { createGlobalStyle } from '../typed-components';
 import reset from 'styled-reset';
 
 export default createGlobalStyle`
-${reset}
-  body {
+  ${reset}
+  * {
     @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif !important;
     background-color: ${props => props.theme.bgColor}
   }
 `;
