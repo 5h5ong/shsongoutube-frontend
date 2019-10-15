@@ -4,7 +4,9 @@ import styled from '../typed-components';
 import VideoPlayer from '../Components/VideoPlayer';
 
 const Container = styled.div`
+  display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
   flex-direction: column;
 `;
