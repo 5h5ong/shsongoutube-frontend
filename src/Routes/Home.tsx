@@ -8,8 +8,8 @@ const GET_ALL_FILE = gql`
   {
     getAllFile {
       id
-      url
       filename
+      preview
     }
   }
 `;
@@ -17,6 +17,7 @@ const GET_ALL_FILE = gql`
 const GridContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: row;
 `;
 
