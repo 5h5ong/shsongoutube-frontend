@@ -11,6 +11,7 @@ export const theme = {
              border-radius: ${BORDER_RADIUS};
              justify-content: center;
              padding: 40px;
-  `
+  `,
+  minHeight: '800px'
 };
 export type Theme = typeof theme;

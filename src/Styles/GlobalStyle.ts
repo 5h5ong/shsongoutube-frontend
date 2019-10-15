@@ -8,4 +8,7 @@ export default createGlobalStyle`
     font-family: 'Roboto', sans-serif !important;
     background-color: ${props => props.theme.bgColor}
   }
+  body {
+    min-height: ${props => props.theme.minHeight};
+  }
 `;
