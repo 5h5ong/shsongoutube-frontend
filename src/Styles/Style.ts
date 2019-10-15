@@ -5,6 +5,7 @@ const BORDER_RADIUS = '16px';
 export const theme = {
   bgColor: '#fbfbfe',
   btnColor: '#0060df',
+  headerColor: '#bbded6',
   whiteBox: `background-color: white;
              box-shadow: ${BOX_SHADOW};
              border-radius: ${BORDER_RADIUS};
