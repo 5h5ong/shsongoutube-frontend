@@ -24,6 +24,7 @@ const HeaderText = styled.span`
 const IconContainer = styled.div`
   padding-right: 30px;
 `;
+
 const Header = () => {
   return (
     <Container>
