@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '../typed-components';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -20,7 +21,9 @@ const HeaderText = styled.span`
 const Header = () => {
   return (
     <Container>
-      <HeaderText>Shsongoutube</HeaderText>
+      <Link to='/'>
+        <HeaderText>Shsongoutube</HeaderText>
+      </Link>
     </Container>
   );
 };
