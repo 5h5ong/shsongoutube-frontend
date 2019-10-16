@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Header from '../Components/Header';
 import Home from '../Routes/Home';
 import Detail from '../Routes/Detail';
 import Auth from '../Routes/Auth';
@@ -24,6 +25,7 @@ const Switches = () => {
 const AppRouter = ({ isLoggedIn }: AppRouterProps) => {
   return (
     <>
+      <Header />
       <Switches />
     </>
   );
