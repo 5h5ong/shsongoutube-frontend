@@ -17,6 +17,7 @@ const Switches = () => {
         <Route exact path='/' component={Home} />
         <Route path='/Detail' component={Detail} />
         <Route path='/streaming/:filename/:videoId' component={Detail} />
+        <Route path='/auth' component={Auth} />
       </Switch>
     </>
   );

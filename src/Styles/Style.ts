@@ -13,6 +13,7 @@ export const theme = {
              justify-content: center;
              padding: 40px;
   `,
-  minHeight: '800px'
+  minHeight: '800px',
+  minWidth: '512px'
 };
 export type Theme = typeof theme;
