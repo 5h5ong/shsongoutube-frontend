@@ -13,6 +13,14 @@ export const theme = {
              justify-content: center;
              padding: 40px;
   `,
+  whiteInput: `border: 1px solid #b5b5b5;
+               width: 100%;
+               height: 30px;
+               padding: 10px;
+               border-radius: 8px;
+               font-size: 16px;
+               font-weight: 400;
+  `,
   minHeight: '800px',
   minWidth: '512px'
 };
