@@ -8,21 +8,25 @@ type AppRouterProps = {
   isLoggedIn: boolean;
 };
 
-const LoggedInRoutes = () => {
+// sign in 여부에 따라 header 표시 다르게
+const Switches = () => {
   return (
-    <Switch>
-      <Route exact path='/' component={Home} />
-      <Route path='/Detail' component={Detail} />
-      <Route path='/streaming/:filename/:videoId' component={Detail} />
-    </Switch>
+    <>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route path='/Detail' component={Detail} />
+        <Route path='/streaming/:filename/:videoId' component={Detail} />
+      </Switch>
+    </>
   );
-};
-const LoggedOutRoutes = () => {
-  return <Route path='/Auth' component={Auth} />;
 };
 
 const AppRouter = ({ isLoggedIn }: AppRouterProps) => {
-  return <>{isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />}</>;
+  return (
+    <>
+      <Switches />
+    </>
+  );
 };
 
 export default AppRouter;
