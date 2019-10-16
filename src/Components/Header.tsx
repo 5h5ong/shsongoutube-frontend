@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from '../typed-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import FancyLink from './FancyLink';
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: white;
   text-align: center;
@@ -17,6 +19,10 @@ const HeaderText = styled.span`
   background-color: inherit;
   font-size: 35px;
   font-weight: 1000;
+  padding-left: 30px;
+`;
+const IconContainer = styled.div`
+  padding-right: 30px;
 `;
 const Header = () => {
   return (
@@ -24,6 +30,11 @@ const Header = () => {
       <FancyLink to='/'>
         <HeaderText>Shsongoutube</HeaderText>
       </FancyLink>
+      <IconContainer>
+        <FancyLink to='/auth'>
+          <FontAwesomeIcon icon={faSignInAlt} size='lg' />
+        </FancyLink>
+      </IconContainer>
     </Container>
   );
 };
