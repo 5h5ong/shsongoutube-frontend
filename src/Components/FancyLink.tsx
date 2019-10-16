@@ -8,7 +8,7 @@ type FancyLinkProps = {
 };
 const EditedLink = styled(Link)`
   text-decoration: none;
-  color: black;
+  color: ${props => props.theme.linkColor};
 `;
 const FancyLink = ({ to, children }: FancyLinkProps) => {
   return <EditedLink to={to}>{children}</EditedLink>;
