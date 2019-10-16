@@ -9,8 +9,9 @@ type Props = {
   id: number;
 };
 
-// styled-components
-const Container = styled.div``;
+const Container = styled.div`
+  ${props => props.theme.whiteBox}
+`;
 
 const GET_FILE = gql`
   query getFile($id: Int!) {
