@@ -18,8 +18,8 @@ const App = () => {
       <>
         <GlobalStyle />
         <Container>
-          <Header />
           <Router>
+            <Header />
             <Routes isLoggedIn={true} />
           </Router>
         </Container>
