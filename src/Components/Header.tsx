@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '../typed-components';
-import { FancyLink } from './FancyLink';
+import FancyLink from './FancyLink';
 
 const Container = styled.div`
   display: flex;
