@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '../typed-components';
 import { Link } from 'react-router-dom';
+import FancyLink from './FancyLink';
 
 type HomeCardProps = {
   id: number;
@@ -30,9 +31,9 @@ const HomeCard = ({ id, filename, preview }: HomeCardProps) => {
   return (
     <Container>
       <Preview src={preview} />
-      <Link to={`/streaming/${filename}/${id}`}>
+      <FancyLink to={`/streaming/${filename}/${id}`}>
         <BoldText>{filename}</BoldText>
-      </Link>
+      </FancyLink>
     </Container>
   );
 };
