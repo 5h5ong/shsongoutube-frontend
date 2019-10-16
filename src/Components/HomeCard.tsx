@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '../typed-components';
-import { Link } from 'react-router-dom';
 import FancyLink from './FancyLink';
 
 type HomeCardProps = {
