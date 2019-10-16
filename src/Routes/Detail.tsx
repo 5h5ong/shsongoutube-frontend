@@ -10,12 +10,16 @@ const Container = styled.div`
   text-align: center;
   flex-direction: column;
 `;
+const Filename = styled.span`
+  font-size: 20px;
+  margin-bottom: 40px;
+`;
 
 const Detail = ({ match }: any) => {
   const { filename, videoId } = match.params;
   return (
     <Container>
-      <div>{filename}</div>
+      <Filename>{filename}</Filename>
       <VideoPlayer id={parseInt(videoId)} />
     </Container>
   );
