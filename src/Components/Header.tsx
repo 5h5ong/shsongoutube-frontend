@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '../typed-components';
-import { Link } from 'react-router-dom';
+import { FancyLink } from './FancyLink';
 
 const Container = styled.div`
   display: flex;
@@ -21,9 +21,9 @@ const HeaderText = styled.span`
 const Header = () => {
   return (
     <Container>
-      <Link to='/'>
+      <FancyLink to='/'>
         <HeaderText>Shsongoutube</HeaderText>
-      </Link>
+      </FancyLink>
     </Container>
   );
 };
