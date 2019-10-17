@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
 export const CHECK_EMAIL = gql`
-  query checkEmail($email: String!) {
+  mutation checkEmail($email: String!) {
     checkEmail(email: $email)
   }
 `;
