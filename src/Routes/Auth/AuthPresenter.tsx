@@ -3,6 +3,7 @@ import styled from '../../typed-components';
 
 type AuthPresenterTypes = {
   loginAction: string;
+  emailInput: any;
 };
 const Container = styled.div`
   display: flex;
@@ -49,14 +50,20 @@ const Input = styled.input`
   margin-bottom: 20px;
 `;
 
-const AuthPresenter = ({ loginAction }: AuthPresenterTypes) => {
+const AuthPresenter = ({ loginAction, emailInput }: AuthPresenterTypes) => {
   return (
     <Container>
       {loginAction === 'login' && (
         <AuthContainer>
           <HeadText>Login</HeadText>
           <Form>
-            <Input placeholder='이메일' type='email' required />
+            <Input
+              placeholder='이메일'
+              type='email'
+              value={emailInput.value}
+              onChange={emailInput.handleChange}
+              required
+            />
             <Button type='submit'>이메일 보내기</Button>
           </Form>
         </AuthContainer>
