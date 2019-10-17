@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 const useInput = (initialValue: string) => {
-  const [value, setInput] = useState(initialValue);
+  const [value, setValue] = useState(initialValue);
   const handleChange = (e: any) => {
-    setInput(e.vaule);
+    setValue(e.target.value);
   };
   return { value, handleChange };
 };
+
+export default useInput;
