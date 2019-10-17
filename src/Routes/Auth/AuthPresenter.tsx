@@ -19,13 +19,32 @@ const AuthContainer = styled.div`
   align-items: center;
   text-align: center;
 `;
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+`;
+
 const HeadText = styled.div`
   font-size: 30px;
   margin-bottom: 30px;
 `;
 
+const Button = styled.button`
+  width: 100%;
+  height: 48px;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: ${props => props.theme.btnColor};
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  &:hover {
+    background-color: #003eaa;
+  }
+`;
 const Input = styled.input`
-  display: flex;
   ${props => props.theme.whiteInput};
   margin-bottom: 20px;
 `;
@@ -36,7 +55,10 @@ const AuthPresenter = ({ loginAction }: AuthPresenterTypes) => {
       {loginAction === 'login' && (
         <AuthContainer>
           <HeadText>Login</HeadText>
-          <Input placeholder='이메일' />
+          <Form>
+            <Input placeholder='이메일' type='email' required />
+            <Button type='submit'>이메일 보내기</Button>
+          </Form>
         </AuthContainer>
       )}
       {loginAction === 'signup' && (
