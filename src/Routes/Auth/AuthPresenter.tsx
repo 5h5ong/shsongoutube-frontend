@@ -1,4 +1,6 @@
 import React from 'react';
+import { useQuery } from 'react-apollo-hooks';
+import { CHECK_EMAIL } from './AuthQueries';
 import styled from '../../typed-components';
 
 type AuthPresenterTypes = {
