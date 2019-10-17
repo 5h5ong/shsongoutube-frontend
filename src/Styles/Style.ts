@@ -15,8 +15,8 @@ export const theme = {
   `,
   whiteInput: `border: 1px solid #b5b5b5;
                width: 100%;
-               height: 30px;
-               padding: 10px;
+               height: 48px;
+               padding: 0 0 0 16px;
                border-radius: 8px;
                font-size: 16px;
                font-weight: 400;
