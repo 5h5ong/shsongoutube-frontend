@@ -1,11 +1,10 @@
-import React from 'react';
-import { useQuery } from 'react-apollo-hooks';
-import { CHECK_EMAIL } from './AuthQueries';
+import React, { FormEventHandler } from 'react';
 import styled from '../../typed-components';
 
 type AuthPresenterTypes = {
   loginAction: string;
   emailInput: any;
+  onSubmit: FormEventHandler<HTMLFormElement>;
 };
 const Container = styled.div`
   display: flex;
@@ -52,13 +51,17 @@ const Input = styled.input`
   margin-bottom: 20px;
 `;
 
-const AuthPresenter = ({ loginAction, emailInput }: AuthPresenterTypes) => {
+const AuthPresenter = ({
+  loginAction,
+  emailInput,
+  onSubmit
+}: AuthPresenterTypes) => {
   return (
     <Container>
       {loginAction === 'login' && (
         <AuthContainer>
           <HeadText>Login</HeadText>
-          <Form>
+          <Form onSubmit={onSubmit}>
             <Input
               placeholder='이메일'
               type='email'
