@@ -44,7 +44,7 @@ const Button = styled.div`
 `;
 
 const LOCAL_LOGOUT = gql`
-  {
+  mutation {
     localLogout @client
   }
 `;

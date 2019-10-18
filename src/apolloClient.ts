@@ -16,6 +16,8 @@ const resolvers = {
     localLogout: (_: any) => {
       // remove token inside localStorage
       localStorage.removeItem('token');
+      // reload window
+      window.location.reload();
       return;
     }
   }
