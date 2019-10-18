@@ -10,3 +10,8 @@ export const LOGIN = gql`
     login(email: $email, secretKey: $secretKey)
   }
 `;
+export const LOCAL_LOGIN = gql`
+  mutation localLogin($token: String!) {
+    localLogin(token: $token) @client
+  }
+`;
