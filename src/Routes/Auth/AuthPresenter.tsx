@@ -4,6 +4,7 @@ import styled from '../../typed-components';
 type AuthPresenterTypes = {
   loginAction: string;
   emailInput: any;
+  secretInput: any;
   onSubmit: FormEventHandler<HTMLFormElement>;
 };
 const Container = styled.div`
@@ -54,6 +55,7 @@ const Input = styled.input`
 const AuthPresenter = ({
   loginAction,
   emailInput,
+  secretInput,
   onSubmit
 }: AuthPresenterTypes) => {
   return (
@@ -75,9 +77,22 @@ const AuthPresenter = ({
       )}
       {loginAction === 'signup' && (
         <AuthContainer>
-          <div>Signup</div>
+          <HeadText>Signup</HeadText>
         </AuthContainer>
       )}
+      {loginAction === 'confirm'}
+      <AuthContainer>
+        <HeadText>Confirm</HeadText>
+        <Form onSubmit={onSubmit}>
+          <Input
+            placeholder='Secret Key를 입력하세요'
+            value={secretInput.value}
+            onChange={secretInput.onChange}
+            required
+          />
+          <Button>인증</Button>
+        </Form>
+      </AuthContainer>
     </Container>
   );
 };
