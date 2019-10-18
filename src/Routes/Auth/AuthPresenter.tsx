@@ -80,19 +80,19 @@ const AuthPresenter = ({
           <HeadText>Signup</HeadText>
         </AuthContainer>
       )}
-      {loginAction === 'confirm'}
-      <AuthContainer>
-        <HeadText>Confirm</HeadText>
-        <Form onSubmit={onSubmit}>
-          <Input
-            placeholder='Secret Key를 입력하세요'
-            value={secretInput.value}
-            onChange={secretInput.onChange}
-            required
-          />
-          <Button>인증</Button>
-        </Form>
-      </AuthContainer>
+      {loginAction === 'confirm' && (
+        <AuthContainer>
+          <HeadText>Confirm</HeadText>
+          <Form onSubmit={onSubmit}>
+            <Input
+              placeholder='Secret Key를 입력하세요'
+              value={secretInput.value}
+              onChange={secretInput.handleChange}
+            />
+            <Button>인증</Button>
+          </Form>
+        </AuthContainer>
+      )}
     </Container>
   );
 };
