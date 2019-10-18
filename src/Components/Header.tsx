@@ -26,7 +26,19 @@ const HeaderText = styled.span`
   padding-left: 30px;
 `;
 const IconContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-right: 30px;
+  flex-direction: row;
+`;
+const Button = styled.div`
+  ${props => props.theme.basicButton};
+  margin-right: 20px;
+  width: 100px;
+  height: 35px;
+  font-size: 15px;
+  text-align: center;
 `;
 
 const Header = ({ isLoggedIn }: HeaderProps) => {
@@ -36,7 +48,12 @@ const Header = ({ isLoggedIn }: HeaderProps) => {
         <HeaderText>Shsongoutube</HeaderText>
       </FancyLink>
       <IconContainer>
-        {isLoggedIn && <FontAwesomeIcon icon={faUser} size='lg' />}
+        {isLoggedIn && (
+          <>
+            <Button>Logout</Button>
+            <FontAwesomeIcon icon={faUser} size='lg' />
+          </>
+        )}
         {!isLoggedIn && (
           <FancyLink to='/auth'>
             <FontAwesomeIcon icon={faSignInAlt} size='lg' />
