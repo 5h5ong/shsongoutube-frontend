@@ -5,10 +5,6 @@ import { CHECK_EMAIL, LOGIN, LOCAL_LOGIN } from './AuthQueries';
 import AuthPresenter from './AuthPresenter';
 import useInput from '../../Hooks/useInput';
 
-interface checkEmailInventory {
-  checkEmail: boolean;
-}
-
 const AuthContainer = () => {
   const history = useHistory();
   const [loginAction, setLoginAction] = useState('login');
