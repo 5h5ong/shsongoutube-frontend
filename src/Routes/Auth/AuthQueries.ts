@@ -5,3 +5,8 @@ export const CHECK_EMAIL = gql`
     checkEmail(email: $email)
   }
 `;
+export const LOGIN = gql`
+  mutation login($email: String!, $secretKey: String!) {
+    login(email: $email, secretKey: $secretKey)
+  }
+`;
