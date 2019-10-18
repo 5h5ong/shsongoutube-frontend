@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from '../typed-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faSignInAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import FancyLink from './FancyLink';
+
+interface HeaderProps {
+  isLoggedIn: boolean;
+}
 
 const Container = styled.div`
   display: flex;
@@ -25,16 +29,19 @@ const IconContainer = styled.div`
   padding-right: 30px;
 `;
 
-const Header = () => {
+const Header = ({ isLoggedIn }: HeaderProps) => {
   return (
     <Container>
       <FancyLink to='/'>
         <HeaderText>Shsongoutube</HeaderText>
       </FancyLink>
       <IconContainer>
-        <FancyLink to='/auth'>
-          <FontAwesomeIcon icon={faSignInAlt} size='lg' />
-        </FancyLink>
+        {isLoggedIn && <FontAwesomeIcon icon={faUser} size='lg' />}
+        {!isLoggedIn && (
+          <FancyLink to='/auth'>
+            <FontAwesomeIcon icon={faSignInAlt} size='lg' />
+          </FancyLink>
+        )}
       </IconContainer>
     </Container>
   );

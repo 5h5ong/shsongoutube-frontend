@@ -26,7 +26,7 @@ const Switches = () => {
 const AppRouter = ({ isLoggedIn }: AppRouterProps) => {
   return (
     <>
-      <Header />
+      <Header isLoggedIn={isLoggedIn} />
       <Switches />
     </>
   );
