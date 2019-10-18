@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from 'react-apollo-hooks';
+import { useHistory } from 'react-router-dom';
 import { CHECK_EMAIL, LOGIN, LOCAL_LOGIN } from './AuthQueries';
 import AuthPresenter from './AuthPresenter';
 import useInput from '../../Hooks/useInput';
@@ -9,6 +10,7 @@ interface checkEmailInventory {
 }
 
 const AuthContainer = () => {
+  const history = useHistory();
   const [loginAction, setLoginAction] = useState('login');
   const emailInput = useInput('');
   const secretInput = useInput('');
@@ -42,6 +44,10 @@ const AuthContainer = () => {
       } catch (e) {
         console.error(e);
       }
+      // go to homepage
+      history.push('/');
+      // reload
+      window.location.reload();
     }
   };
 
