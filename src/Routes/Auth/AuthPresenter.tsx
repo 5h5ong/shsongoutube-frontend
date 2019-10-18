@@ -34,18 +34,7 @@ const HeadText = styled.div`
 `;
 
 const Button = styled.button`
-  width: 100%;
-  height: 48px;
-  border: none;
-  border-radius: 8px;
-  padding: 10px;
-  background-color: ${props => props.theme.btnColor};
-  color: white;
-  font-size: 16px;
-  font-weight: 400;
-  &:hover {
-    background-color: #003eaa;
-  }
+  ${props => props.theme.basicButton};
 `;
 const Input = styled.input`
   ${props => props.theme.whiteInput};
