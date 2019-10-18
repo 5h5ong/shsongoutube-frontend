@@ -1,8 +1,10 @@
 import React from 'react';
-import styled from '../typed-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt, faUser } from '@fortawesome/free-solid-svg-icons';
+import { gql } from 'apollo-boost';
+import styled from '../typed-components';
 import FancyLink from './FancyLink';
+import { useMutation } from 'react-apollo-hooks';
 
 interface HeaderProps {
   isLoggedIn: boolean;
@@ -41,7 +43,18 @@ const Button = styled.div`
   text-align: center;
 `;
 
+const LOCAL_LOGOUT = gql`
+  {
+    localLogout @client
+  }
+`;
+
 const Header = ({ isLoggedIn }: HeaderProps) => {
+  const [localLogoutMutation] = useMutation(LOCAL_LOGOUT);
+  const onClick = async () => {
+    // logout
+    await localLogoutMutation();
+  };
   return (
     <Container>
       <FancyLink to='/'>
@@ -50,7 +63,7 @@ const Header = ({ isLoggedIn }: HeaderProps) => {
       <IconContainer>
         {isLoggedIn && (
           <>
-            <Button>Logout</Button>
+            <Button onClick={onClick}>Logout</Button>
             <FontAwesomeIcon icon={faUser} size='lg' />
           </>
         )}
