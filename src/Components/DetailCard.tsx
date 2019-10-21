@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { gql } from 'apollo-boost';
 import styled from '../typed-components';
 import VideoPlayer from '../Components/VideoPlayer';
+import { IS_LOGGED_IN } from '../globalQueries';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp as fasThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp as farThumbsUp } from '@fortawesome/free-regular-svg-icons';
-import { useMutation } from 'react-apollo-hooks';
+import { useMutation, useQuery } from 'react-apollo-hooks';
 
 interface DetailCardProps {
   id: string;
@@ -14,7 +15,6 @@ interface DetailCardProps {
   preview: string;
   isLiked: boolean;
 }
-
 const LIKE_VIDEO = gql`
   mutation likeVideo($videoId: Int!) {
     likeVideo(videoId: $videoId)
@@ -44,6 +44,9 @@ const Icon = styled.div``;
 
 const DetailCard = (props: DetailCardProps) => {
   const [isLiked, setIsLiked] = useState<Boolean>(props.isLiked);
+  const {
+    data: { isLoggedIn }
+  }: any = useQuery(IS_LOGGED_IN);
   const [likeMutation] = useMutation(LIKE_VIDEO, {
     variables: { videoId: parseInt(props.id) }
   });
@@ -59,12 +62,14 @@ const DetailCard = (props: DetailCardProps) => {
     <Container>
       <Filename>{props.filename}</Filename>
       <VideoPlayer url={props.url} />
-      <ContentContainer>
-        <Icon onClick={onClick}>
-          {isLiked && <FontAwesomeIcon icon={fasThumbsUp} size='2x' />}
-          {!isLiked && <FontAwesomeIcon icon={farThumbsUp} size='2x' />}
-        </Icon>
-      </ContentContainer>
+      {isLoggedIn && (
+        <ContentContainer>
+          <Icon onClick={onClick}>
+            {isLiked && <FontAwesomeIcon icon={fasThumbsUp} size='2x' />}
+            {!isLiked && <FontAwesomeIcon icon={farThumbsUp} size='2x' />}
+          </Icon>
+        </ContentContainer>
+      )}
     </Container>
   );
 };
