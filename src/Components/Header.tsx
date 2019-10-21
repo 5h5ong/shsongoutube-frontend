@@ -64,7 +64,9 @@ const Header = ({ isLoggedIn }: HeaderProps) => {
         {isLoggedIn && (
           <>
             <Button onClick={onClick}>Logout</Button>
-            <FontAwesomeIcon icon={faUser} size='lg' />
+            <FancyLink to='/profile'>
+              <FontAwesomeIcon icon={faUser} size='lg' />
+            </FancyLink>
           </>
         )}
         {!isLoggedIn && (

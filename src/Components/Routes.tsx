@@ -4,6 +4,7 @@ import Header from '../Components/Header';
 import Home from '../Routes/Home';
 import Detail from '../Routes/Detail';
 import Auth from '../Routes/Auth';
+import Profile from '../Routes/Profile';
 
 type AppRouterProps = {
   isLoggedIn: boolean;
@@ -15,9 +16,10 @@ const Switches = () => {
     <>
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route path='/Detail' component={Detail} />
+        <Route path='/detail' component={Detail} />
         <Route path='/streaming/:filename/:videoId' component={Detail} />
         <Route path='/auth' component={Auth} />
+        <Route path='/profile' component={Profile} />
       </Switch>
     </>
   );
