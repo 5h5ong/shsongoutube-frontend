@@ -1,51 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import styled from '../typed-components';
-import VideoPlayer from '../Components/VideoPlayer';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp as fasThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import { faThumbsUp as farThumbsUp } from '@fortawesome/free-regular-svg-icons';
+import { useQuery } from 'react-apollo-hooks';
+import gql from 'graphql-tag';
+import DetailCard from '../Components/DetailCard';
 
-const Container = styled.div`
-  ${props => props.theme.whiteBox}
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
+const GET_FILE = gql`
+  query getFile($id: Int!) {
+    getFile(id: $id) {
+      filename
+      url
+      preview
+      isLiked
+    }
+  }
 `;
-const ContentContainer = styled.div`
-  display: flex;
-  width: 100%;
-  margin-top: 30px;
-  flex-direction: row;
-  justify-content: flex-start;
-`;
-const Filename = styled.span`
-  font-size: 20px;
-  margin-bottom: 40px;
-`;
-const Icon = styled.div``;
 
 const Detail = ({ match }: any) => {
-  const [isLiked, setIsLiked] = useState(false);
-  const { filename, videoId } = match.params;
-  // functions
-  const onClick = () => {
-    setIsLiked(i => !i);
-  };
+  const { videoId } = match.params;
+  // get File data
+  const { data, loading } = useQuery(GET_FILE, {
+    variables: { id: parseInt(videoId) }
+  });
 
   return (
-    <Container>
-      <Filename>{filename}</Filename>
-      <VideoPlayer id={parseInt(videoId)} />
-      <ContentContainer>
-        <Icon onClick={onClick}>
-          {isLiked && <FontAwesomeIcon icon={fasThumbsUp} size='2x' />}
-          {!isLiked && <FontAwesomeIcon icon={farThumbsUp} size='2x' />}
-        </Icon>
-      </ContentContainer>
-    </Container>
+    <>{!loading && data && data.getFile && <DetailCard {...data.getFile} />}</>
   );
 };
 
