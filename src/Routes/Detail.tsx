@@ -7,6 +7,7 @@ import DetailCard from '../Components/DetailCard';
 const GET_FILE = gql`
   query getFile($id: Int!) {
     getFile(id: $id) {
+      id
       filename
       url
       preview

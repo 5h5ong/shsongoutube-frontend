@@ -1,16 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { gql } from 'apollo-boost';
 import styled from '../typed-components';
 import VideoPlayer from '../Components/VideoPlayer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp as fasThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp as farThumbsUp } from '@fortawesome/free-regular-svg-icons';
+import { useMutation } from 'react-apollo-hooks';
 
 interface DetailCardProps {
+  id: string;
   filename: string;
   url: string;
   preview: string;
   isLiked: boolean;
 }
+
+const LIKE_VIDEO = gql`
+  mutation likeVideo($videoId: Int!) {
+    likeVideo(videoId: $videoId)
+  }
+`;
+
 const Container = styled.div`
   ${props => props.theme.whiteBox}
   display: flex;
@@ -34,12 +44,23 @@ const Icon = styled.div``;
 
 const DetailCard = (props: DetailCardProps) => {
   const [isLiked, setIsLiked] = useState<Boolean>(props.isLiked);
+  const [likeMutation] = useMutation(LIKE_VIDEO, {
+    variables: { videoId: parseInt(props.id) }
+  });
+  const onClick = async () => {
+    setIsLiked(i => !i);
+    try {
+      await likeMutation();
+    } catch (e) {
+      console.log(e);
+    }
+  };
   return (
     <Container>
       <Filename>{props.filename}</Filename>
       <VideoPlayer url={props.url} />
       <ContentContainer>
-        <Icon onClick={() => setIsLiked(i => !i)}>
+        <Icon onClick={onClick}>
           {isLiked && <FontAwesomeIcon icon={fasThumbsUp} size='2x' />}
           {!isLiked && <FontAwesomeIcon icon={farThumbsUp} size='2x' />}
         </Icon>
