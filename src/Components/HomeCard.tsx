@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '../typed-components';
 import FancyLink from './FancyLink';
+import BoldText from './BoldText';
 
 type HomeCardProps = {
   id: number;
@@ -20,10 +21,6 @@ const Preview = styled.img`
   width: 200px;
   height: 150px;
   margin-bottom: 10px;
-`;
-
-const BoldText = styled.div`
-  font-size: 20px;
 `;
 
 const HomeCard = ({ id, filename, preview }: HomeCardProps) => {
